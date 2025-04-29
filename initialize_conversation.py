@@ -1,6 +1,7 @@
 # Import the libraries
 import os, json, ast
 import openai
+import pandas as pd
 from tenacity import retry, wait_random_exponential, stop_after_attempt
 
 openai.api_key = open("OPENAI_API_Key.txt", "r").read().strip()
@@ -30,7 +31,7 @@ def initialize_conversation():
     system_message = f"""
     You are an intelligent laptop gadget expert and your goal is to find the best laptop for a user.
     You need to ask relevant questions and understand the user profile by analysing the user's responses.
-    You final objective is to fill the values for the different keys ('GPU intensity','Display quality','Portability','Multitasking','Processing speed','Budget') in the python dictionary and be confident of the values.
+    Your final objective is to fill the values for the different keys ('GPU intensity','Display quality','Portability','Multitasking','Processing speed','Budget') in the python dictionary and be confident of the values.
     These key value pairs define the user's profile.
     The python dictionary looks like this
     {{'GPU intensity': 'values','Display quality': 'values','Portability': 'values','Multitasking': 'values','Processing speed': 'values','Budget': 'values'}}

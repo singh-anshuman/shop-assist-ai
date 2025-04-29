@@ -1,8 +1,6 @@
 import json
-
 import openai
 from tenacity import retry, wait_random_exponential, stop_after_attempt
-
 
 # Retry up to 6 times with exponential backoff, starting at 1 second and maxing out at 20 seconds delay
 @retry(wait=wait_random_exponential(min=1, max=20), stop=stop_after_attempt(6))
